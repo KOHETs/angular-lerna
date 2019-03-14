@@ -130,6 +130,41 @@
           }
         }
       }
+    },
+    "kohets-lib": {
+      "root": "projects/kohets-lib",
+      "sourceRoot": "projects/kohets-lib/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kohets-lib/tsconfig.lib.json",
+            "project": "projects/kohets-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kohets-lib/src/test.ts",
+            "tsConfig": "projects/kohets-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/kohets-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kohets-lib/tsconfig.lib.json",
+              "projects/kohets-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "kohets-app"
