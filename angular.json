@@ -2,5 +2,135 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "kohets-app": {
+      "root": "projects/kohets-app/",
+      "sourceRoot": "projects/kohets-app/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/kohets-app",
+            "index": "projects/kohets-app/src/index.html",
+            "main": "projects/kohets-app/src/main.ts",
+            "polyfills": "projects/kohets-app/src/polyfills.ts",
+            "tsConfig": "projects/kohets-app/tsconfig.app.json",
+            "assets": [
+              "projects/kohets-app/src/favicon.ico",
+              "projects/kohets-app/src/assets"
+            ],
+            "styles": [
+              "projects/kohets-app/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/kohets-app/src/environments/environment.ts",
+                  "with": "projects/kohets-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "kohets-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "kohets-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "kohets-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kohets-app/src/test.ts",
+            "polyfills": "projects/kohets-app/src/polyfills.ts",
+            "tsConfig": "projects/kohets-app/tsconfig.spec.json",
+            "karmaConfig": "projects/kohets-app/karma.conf.js",
+            "styles": [
+              "projects/kohets-app/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/kohets-app/src/favicon.ico",
+              "projects/kohets-app/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kohets-app/tsconfig.app.json",
+              "projects/kohets-app/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "kohets-app-e2e": {
+      "root": "projects/kohets-app-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/kohets-app-e2e/protractor.conf.js",
+            "devServerTarget": "kohets-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "kohets-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/kohets-app-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "kohets-app"
 }
