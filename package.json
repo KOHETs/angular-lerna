@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prerelease": "lerna version prerelease --conventional-commits --no-push --yes",
+    "release": "lerna version --conventional-commits --no-push --yes"
   },
   "private": true,
   "dependencies": {
