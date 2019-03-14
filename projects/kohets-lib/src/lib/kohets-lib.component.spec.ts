@@ -8,9 +8,8 @@ describe('KohetsLibComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KohetsLibComponent ]
-    })
-    .compileComponents();
+      declarations: [KohetsLibComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

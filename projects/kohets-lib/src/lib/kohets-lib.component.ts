@@ -7,13 +7,10 @@ import { Component, OnInit } from '@angular/core';
       kohets-lib works!
     </p>
   `,
-  styles: []
+  styles: [],
 })
 export class KohetsLibComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
