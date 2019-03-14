@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'lib-kohets-lib',
   template: `
     <p>
-      kohets-lib works!
+      kohets-lib works!!
     </p>
   `,
   styles: [],
